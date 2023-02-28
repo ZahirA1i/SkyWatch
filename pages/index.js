@@ -3,6 +3,8 @@ import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
 import { useEffect , useRef, useState } from 'react'
 import axios from 'axios'
+import Nav from '@/comps/Nav'
+import { Card, Grid } from '@nextui-org/react'
 
 
 export default function Home() {
@@ -82,6 +84,10 @@ export default function Home() {
   
         return (
           <div key={index}>
+            <Grid.Container gap={2} justify="center">
+              <Grid>
+            <Card isHoverable variant="bordered">
+              <Card.Body>
             <Image 
             src={icon}
             alt={icon}
@@ -94,6 +100,10 @@ export default function Home() {
           </p>
           <div>{weather.main.temp.toFixed(1)}C</div>
           <div>{weather.weather[0].main}</div>
+          </Card.Body>
+          </Card>
+          </Grid>
+          </Grid.Container>
           </div>
         )
       }
@@ -126,12 +136,13 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Nav/>
       <main className={styles.main}>
         <div className={styles.description}>
           <p>
             Vancouver BC Weather <br/>
             Last Updates: {date}
-            <code className={styles.code}>pages/index.js</code>
+            
           </p>
           
           <div>
@@ -155,12 +166,11 @@ export default function Home() {
         </div>
 
         <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/weather-forecast-logo.png"
+          <img
+            src="/Skywatch.png"
             alt="Logo"
             width={300}
-            height={100}
+            height={300}
             priority
           />
   
