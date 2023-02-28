@@ -20,8 +20,8 @@ const Nav = () => {
           />
             </Navbar.Brand>
             <Navbar.Content hideIn="xs" >
-              <Navbar.Link href="/">Home</Navbar.Link>
-              <Navbar.Link href="/about">About</Navbar.Link>
+              <Navbar.Link href="http://zxhirali.ca/">My Portfolio</Navbar.Link>
+              <Navbar.Link href="https://github.com/ZahirA1i/SkyWatch">Github</Navbar.Link>
             </Navbar.Content>
           </Navbar>
         </div>
