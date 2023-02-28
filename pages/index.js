@@ -9,7 +9,8 @@ import { Card, Grid, Text } from '@nextui-org/react'
 
 export default function Home() {
 
-  const apiKey ="1df61fa3f7f3a12a1b00e26422a7d3c6";
+
+  const apiKey = process.env.NEXT_PUBLIC_API_KEY;
   const location = "vancouver";
   const units = "metric";
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=${units}&appid=${apiKey}`;
@@ -62,19 +63,19 @@ export default function Home() {
         }
   
         if(weather.weather[0].main == 'Clouds') {
-          icon = '/icons/broken-clouds.png'
+          icon = '/icons/clouds.png'
         } else if (weather.weather[0].main == 'Clear') {
-          icon = '/icons/clear-sky.png'
+          icon = '/icons/clear.png'
         }else if (weather.weather[0].main == 'Atmosphere') {
-          icon = '/icons/mist.png'
+          icon = '/icons/atmosphere.png'
         }else if (weather.weather[0].main == 'Rain') {
           icon = '/icons/rain.png'
         }else if (weather.weather[0].main == 'Drizzle') {
-          icon = '/icons/shower-rain.png'
+          icon = '/icons/rain.png'
         }else if (weather.weather[0].main == 'Snow') {
           icon = '/icons/snow.png'
         }else if (weather.weather[0].main == 'Thunderstorm') {
-          icon = '/icons/thunderstorm.png'
+          icon = '/icons/thundercloud.png'
         }
   
         var now = new Date(weather.dt_text);
@@ -98,7 +99,7 @@ export default function Home() {
           <p>
             {day} <br/> {month} {weather.dt_txt.substr(8,2)}, {weather.dt_txt.substr(0,4)}
           </p>
-          <div>{weather.main.temp.toFixed(1)}C</div>
+          <div>{weather.main.temp.toFixed(1)}°C</div>
           <div>{weather.weather[0].main}</div>
           </Card.Body>
           </Card>
